@@ -1,4 +1,4 @@
-ul, li {
+ul, li, h3, p {
   margin: 0;
   padding: 0;
 }
@@ -21,11 +21,6 @@ body {
   background-color: #34495e;
   margin-bottom: 5px;
   border-radius: 10px;
-}
-
-h3, p {
-  margin: 0;
-  padding: 0;
 }
 
 h3 {
