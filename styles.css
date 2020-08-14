@@ -1,4 +1,4 @@
-ul, li {
+ul, li, h3, p {
   margin: 0;
   padding: 0;
 }
@@ -17,8 +17,17 @@ body {
 
 #itemsList li {
   color: #fff;
-  padding: 20px;
+  padding: 20px 20px 5px 20px;
   background-color: #34495e;
   margin-bottom: 5px;
   border-radius: 10px;
+}
+
+h3 {
+  border-bottom: 1px solid black ;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 14px;
 }
