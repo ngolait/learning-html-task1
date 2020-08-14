@@ -16,6 +16,7 @@ body {
 }
 
 #itemsList li {
+  width: 350px;
   color: #fff;
   padding: 20px 20px 5px 20px;
   background-color: #34495e;

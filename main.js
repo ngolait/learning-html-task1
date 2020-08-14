@@ -1,15 +1,15 @@
 const listItemInput = document.getElementById('item');
 const itemsList = document.getElementById('itemsList');
 
-const dt = new Date()
-const day = dt.getDate()
-const month = dt.getMonth()
-const year = dt.getFullYear()
-const months = new Array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro")
-
+const months = new Array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro",    "Novembro","Dezembro")
 
 document.getElementById('btnAddItem').addEventListener('click', function(event) {
   event.preventDefault();
+
+  const dt = new Date()
+  const day = dt.getDate()
+  const month = dt.getMonth()
+  const year = dt.getFullYear()
 
   const itemValue = listItemInput.value;
 
@@ -22,8 +22,12 @@ document.getElementById('btnAddItem').addEventListener('click', function(event) 
   let p = document.createElement('p')
   p.textContent = `Adicionado: ${day} de ${months[month]} de ${year}`
 
+  let btnDelete = document.createElement('button')
+  btnDelete.textContent = 'Apagar'
+
   liNode.appendChild(h3);
   liNode.appendChild(p)
+  liNode.appendChild(btnDelete)
 
   itemsList.appendChild(liNode);
 
