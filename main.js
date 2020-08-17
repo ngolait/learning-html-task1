@@ -1,7 +1,7 @@
 const listItemInput = document.getElementById('item');
 const itemsList = document.getElementById('itemsList');
 
-const months = new Array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro",    "Novembro","Dezembro")
+const months = new Array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro")
 
 document.getElementById('btnAddItem').addEventListener('click', function(event) {
   event.preventDefault();
