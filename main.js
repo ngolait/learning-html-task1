@@ -3,7 +3,7 @@ const itemsList = document.getElementById('itemsList');
 
 const months = new Array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
 
-var listElements = [];
+let listElements = [];
 
 function renderElements() {
 
