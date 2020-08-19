@@ -3,7 +3,7 @@ const itemsList = document.getElementById('itemsList');
 
 const months = new Array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
 
-let listElements = [];
+let listElements = JSON.parse(localStorage.getItem('todo_list')) || [];
 
 function renderElements() {
 
@@ -52,6 +52,7 @@ document.getElementById('btnAddItem').addEventListener('click', function(event) 
   listElements.push(itemValue);
 
   renderElements();
+  saveElements();
 
   listItemInput.value = '';
   listItemInput.focus();
@@ -61,4 +62,10 @@ document.getElementById('btnAddItem').addEventListener('click', function(event) 
 function deleteElements (position) {
   listElements.splice(position, 1);
   renderElements();
+  saveElements();
+}
+
+//save elements to localStorage
+function saveElements() {
+  localStorage.setItem('todo_list', JSON.stringify(listElements));
 }
