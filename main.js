@@ -44,6 +44,8 @@ function renderElements() {
   
 }
 
+renderElements();
+
 // Add Elements
 document.getElementById('btnAddItem').addEventListener('click', function(event) {
   event.preventDefault();
