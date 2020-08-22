@@ -3,7 +3,8 @@ const itemsList = document.getElementById('itemsList');
 
 const months = new Array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
 
-let listElements = JSON.parse(localStorage.getItem('todo_list')) || [];
+let listElements = JSON.parse(localStorage.getItem('todoList')) || [];
+
 
 function renderElements() {
 
@@ -51,11 +52,12 @@ document.getElementById('btnAddItem').addEventListener('click', function(event) 
   event.preventDefault();
 
   const itemValue = listItemInput.value;
-  listElements.push(itemValue);
-
-  renderElements();
+  
+  listElements = [...listElements, itemValue];
   saveElements();
-
+  renderElements();
+  
+  
   listItemInput.value = '';
   listItemInput.focus();
 });
@@ -63,11 +65,12 @@ document.getElementById('btnAddItem').addEventListener('click', function(event) 
 //Delete Elements
 function deleteElements (position) {
   listElements.splice(position, 1);
+
   renderElements();
   saveElements();
 }
 
 //save elements to localStorage
 function saveElements() {
-  localStorage.setItem('todo_list', JSON.stringify(listElements));
+  localStorage.setItem('todoList', JSON.stringify(listElements));
 }
