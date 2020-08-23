@@ -26,12 +26,12 @@ function renderElements() {
     p.textContent = `Adicionado: ${day} de ${months[month]} de ${year}`;
 
     //get element position
-    let position = listElements.indexOf(elements);
+    //let position = listElements.indexOf(elements);
 
     //Create a delete button
     let btnDelete = document.createElement('button');
     btnDelete.textContent = 'Apagar';
-    btnDelete.setAttribute('onclick', 'deleteElements('+position+')');
+    btnDelete.setAttribute('onclick', 'deleteElements('+elements+')');
 
     liNode.appendChild(h3);
     liNode.appendChild(p);
@@ -54,7 +54,7 @@ document.getElementById('btnAddItem').addEventListener('click', function(event) 
   const itemValue = listItemInput.value;
   
   listElements = [...listElements, itemValue];
-  saveElements();
+  saveElements(listElements);
   renderElements();
   
   
@@ -63,14 +63,18 @@ document.getElementById('btnAddItem').addEventListener('click', function(event) 
 });
 
 //Delete Elements
-function deleteElements (position) {
-  listElements.splice(position, 1);
+function deleteElements (elements) {
+  //listElements.splice(position, 1);
 
+  let newListElements = listElements.filter( a => {
+    return a !== elements;         
+  });
+  
+  saveElements(newListElements);
   renderElements();
-  saveElements();
 }
 
 //save elements to localStorage
-function saveElements() {
-  localStorage.setItem('todoList', JSON.stringify(listElements));
+function saveElements(saveList) {
+  localStorage.setItem('todoList', JSON.stringify(saveList));
 }
