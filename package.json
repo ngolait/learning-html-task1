@@ -1,0 +1,28 @@
+{
+  "name": "learning-html-task1",
+  "version": "1.0.0",
+  "description": "learning html project",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngolait/learning-html-task1.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngolait/learning-html-task1/issues"
+  },
+  "homepage": "https://github.com/ngolait/learning-html-task1#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0"
+  }
+}
