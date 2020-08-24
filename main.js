@@ -2,12 +2,10 @@ const listItemInput = document.getElementById('item');
 const itemsList = document.getElementById('itemsList');
 
 const months = new Array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
-
-let listElements = JSON.parse(localStorage.getItem('todoList')) || [];
-
+let listElements = [];
 
 function renderElements() {
-
+  listElements = JSON.parse(localStorage.getItem('todoList')) || [];
   itemsList.innerHTML = '';
 
   for (elements of listElements) {
@@ -15,6 +13,7 @@ function renderElements() {
     const day = dt.getDate();
     const month = dt.getMonth();
     const year = dt.getFullYear();
+
   
     const liNode = document.createElement('li');
     const liNodeText = document.createTextNode(elements);
@@ -26,12 +25,16 @@ function renderElements() {
     p.textContent = `Adicionado: ${day} de ${months[month]} de ${year}`;
 
     //get element position
-    //let position = listElements.indexOf(elements);
+    let position = listElements.indexOf(elements);
 
     //Create a delete button
     let btnDelete = document.createElement('button');
     btnDelete.textContent = 'Apagar';
-    btnDelete.setAttribute('onclick', 'deleteElements('+elements+')');
+    btnDelete.addEventListener('click', () => {
+      const newElements = deleteElement(listElements, position);
+      saveElements(newElements);
+      renderElements();
+    });
 
     liNode.appendChild(h3);
     liNode.appendChild(p);
@@ -63,15 +66,8 @@ document.getElementById('btnAddItem').addEventListener('click', function(event) 
 });
 
 //Delete Elements
-function deleteElements (elements) {
-  //listElements.splice(position, 1);
-
-  let newListElements = listElements.filter( a => {
-    return a !== elements;         
-  });
-  
-  saveElements(newListElements);
-  renderElements();
+function deleteElement(elements, position) {
+  return elements.filter((element, index) => index !== position);
 }
 
 //save elements to localStorage
