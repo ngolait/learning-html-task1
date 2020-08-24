@@ -2,11 +2,10 @@ const listItemInput = document.getElementById('item');
 const itemsList = document.getElementById('itemsList');
 
 const months = new Array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
-
 let listElements = [];
 
 function renderElements() {
-
+  listElements = JSON.parse(localStorage.getItem('todoList')) || [];
   itemsList.innerHTML = '';
 
   for (elements of listElements) {
@@ -14,6 +13,7 @@ function renderElements() {
     const day = dt.getDate();
     const month = dt.getMonth();
     const year = dt.getFullYear();
+
   
     const liNode = document.createElement('li');
     const liNodeText = document.createTextNode(elements);
@@ -30,7 +30,11 @@ function renderElements() {
     //Create a delete button
     let btnDelete = document.createElement('button');
     btnDelete.textContent = 'Apagar';
-    btnDelete.setAttribute('onclick', 'deleteElements('+position+')');
+    btnDelete.addEventListener('click', () => {
+      const newElements = deleteElement(listElements, position);
+      saveElements(newElements);
+      renderElements();
+    });
 
     liNode.appendChild(h3);
     liNode.appendChild(p);
@@ -44,21 +48,29 @@ function renderElements() {
   
 }
 
+renderElements();
+
 // Add Elements
 document.getElementById('btnAddItem').addEventListener('click', function(event) {
   event.preventDefault();
 
   const itemValue = listItemInput.value;
-  listElements.push(itemValue);
-
+  
+  listElements = [...listElements, itemValue];
+  saveElements(listElements);
   renderElements();
-
+  
+  
   listItemInput.value = '';
   listItemInput.focus();
 });
 
 //Delete Elements
-function deleteElements (position) {
-  listElements.splice(position, 1);
-  renderElements();
+function deleteElement(elements, position) {
+  return elements.filter((element, index) => index !== position);
+}
+
+//save elements to localStorage
+function saveElements(saveList) {
+  localStorage.setItem('todoList', JSON.stringify(saveList));
 }
