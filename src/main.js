@@ -1,16 +1,18 @@
+const listElements = require('./database/fakedatas');
+
 const listItemInput = document.getElementById('item');
 const itemsList = document.getElementById('itemsList');
 
-let listElements = [];
+//let listElements = [];
 
 function renderElements() {
-  listElements = JSON.parse(localStorage.getItem('todoList')) || [];
+//  listElements = JSON.parse(localStorage.getItem('todoList')) || [];
   itemsList.innerHTML = '';
 
   for (elements of listElements) {
   
     const liNode = document.createElement('li');
-    const liNodeText = document.createTextNode(elements);
+    const liNodeText = document.createTextNode(elements.name);
   
     let h3 = document.createElement('h3');
     h3.appendChild(liNodeText);

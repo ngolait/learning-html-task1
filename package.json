@@ -28,6 +28,7 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sqlite-async": "^1.1.1"
   }
 }
