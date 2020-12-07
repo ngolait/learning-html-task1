@@ -5,20 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TODO List</title>
 
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous"/>
+
   <link href="/styles.css" rel="stylesheet">
 </head>
 <body>
   <header>
     <h1>My TODOList</h1>
   </header>
+ 
+  <section>
+    <form id="addItemForm">
+      <input id="item" type="text" name="item" placeholder="Adicionar taréfa">
+      <button id="btnAddItem"><i class="far fa-plus-square"></i></button>
+    </form>
 
-  <form id="addItemForm">
-    <label for="item">Nome do Item</label>
-    <input id="item" type="text" name="item" placeholder="Adicionar Item">
-    <button id="btnAddItem">Adicionar</button>
-  </form>
-
-  <ul id="itemsList"></ul>
+    <ul id="itemsList">
+    </ul>
+  </section>
 
   <script src="/todo.js"></script>
 </body>

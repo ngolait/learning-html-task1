@@ -1,34 +1,78 @@
-ul, li, h3, p {
+*{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: aquamarine;
+  background-color: #FC5185;
 }
 
-#addItemForm {
-  margin-bottom: 10px;
+header {
+  padding: 2rem;
+}
+
+header h1 {
+  font-family: 'Nunito', sans-serif;
+  color: #364f6b;
+}
+
+section {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+form input, form button {
+    padding: 0.5rem;
+    font-size: 2rem;
+    border: none;
+    background: #f5f5f5;
+}
+
+form button {
+    color: #3fc1c9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: #3fc1c9;
+    color: white;
 }
 
 #itemsList {
   list-style: none;
+  margin: 30px;
+  padding: 40px 10px 10px;
+  background: #f5f5f5;
+  border-radius: 10px;
+
 }
 
 #itemsList li {
   width: 350px;
-  color: #fff;
-  padding: 20px 20px 5px 20px;
-  background-color: #34495e;
+  color: #f5f5f5;
+  background-color: #364f6b;
   margin-bottom: 5px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 5px;
+
+  font-family: 'Nunito', sans-serif;
+
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
 }
 
-h3 {
-  border-bottom: 1px solid black ;
-  margin-bottom: 10px;
-}
+#itemsList button {
+  border: none;
+  padding: 0.5rem;
+  background: #FC5185;
+  color: #f5f5f5;
 
-p {
-  font-size: 14px;
+  cursor: pointer;
 }
