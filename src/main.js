@@ -1,7 +1,9 @@
-const listElements = require('./database/fakedatas');
+const listElements = require('./database/db');
 
 const listItemInput = document.getElementById('item');
 const itemsList = document.getElementById('itemsList');
+
+console.log(listElements);
 
 //let listElements = [];
 
